@@ -20,17 +20,15 @@ function Counter({ name, count, increase, decrease, reset }) {
   );
 }
 
-function mapStateToProps(state) {
-  return { count: state.count, name: state.name }
+function mapStateToProps({ countState: { count, name } }) {
+  return { count: count, name: name }
 }
 function mapDispatchToProps(dispatch, ownProps) {
-  console.log(ownProps);
   return {
     increase: () => dispatch({ type: INCREASE, payload: 1 }),
     decrease: () => dispatch({ type: DECREASE, payload: 1 }),
     reset: () => dispatch({ type: RESET }),
   }
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
