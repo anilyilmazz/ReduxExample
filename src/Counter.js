@@ -1,14 +1,12 @@
 import React from "react";
-
+import {connect} from "react-redux"
 function Counter(props) {
-  const amount = props.state.count;
-  const name = props.state.name;
-  const [count,setCount] = React.useState(1);
+  const [count,setCount] = React.useState(3);
   return (
     <div className = "container">
-      <p>counter {amount}</p>
-      <p> {name}</p>
-
+      <p>{props.name}</p>
+      <p>{props.count} </p>
+ 
       <div className = "buttons">
         <button type ="button" className = "btn" 
         onClick = {()=>setCount(count + 1) }>Inc</button>
@@ -21,5 +19,9 @@ function Counter(props) {
     </div>
   );
 }
+function mapStateToProps(state) {
+  console.log(state);
+  return {count:state.count,name:state.name}
+}
 
-export default Counter;
+export default connect(mapStateToProps) (Counter);
