@@ -17,7 +17,6 @@ function Counter({ name, count, increase, decrease, reset,modal_open }) {
            <button type="button" className="btn"
           onClick={modal_open}>Open Modal</button>
       </div>
-
     </div>
   );
 }

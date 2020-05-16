@@ -25,4 +25,14 @@ export const reset = () =>{
 export const modal_open = () =>{
     return {type:MODAL_OPEN}
 }
-
+export const set_loading = () =>{
+    return {type:SET_LOADING}
+}
+export const get_products = () =>{
+    return async function(dispatch){
+        dispatch(set_loading());
+        const response = await fetch("https://johnsmilgatutorials.com/projects/react-tech-store-v2/products");
+        const data = await response.json();
+        dispatch({type:GET_PRODUCTS,payload:data})
+    }
+}

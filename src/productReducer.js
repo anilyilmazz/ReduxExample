@@ -1,8 +1,16 @@
 import {SET_LOADING,GET_PRODUCTS} from './actions'
 const defaultState ={
-    name : 'productReducer'
+    loading: false,
+    products : []
 }
 
 export default function reducer(state=defaultState, action){
-    return state
+    switch (action.type) {
+        case GET_PRODUCTS:
+            return {...state,products : action.payload,loading:false};
+        case SET_LOADING:
+            return {...state,loading:true}
+        default:
+            return state
+    }
 }
