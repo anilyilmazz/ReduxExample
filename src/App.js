@@ -8,18 +8,23 @@ const defaultState = {
 }
 
 function reducer(state, action) {
-  console.log({ state, action })
-  if (action.type === "DECREASE") {
-    //  state.count = state.count -1 
-    //  return state
-    return {...state,count : state.count - action.payload}
+  switch (action.type) {
+    case "DECREASE":
+      return { ...state, count: state.count - action.payload }
+    case "INCREASE":
+      return { ...state, count: state.count + action.payload }
+    case "RESET":
+      return { ...state, count: 0 }
+    default:
+      return state
   }
-  return state
 }
 const store = createStore(reducer, defaultState);
 console.log(store.getState());
 
-store.dispatch({ type: "DECREASE",payload : 1 })
+store.dispatch({ type: "DECREASE", payload: 1 })
+store.dispatch({ type: "RESET"})
+
 
 const App = () => {
   return <Counter state={store.getState()} />;
