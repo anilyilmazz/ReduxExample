@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux"
-import { DECREASE, INCREASE, RESET } from "./actions"
-function Counter({ name, count, increase, decrease, reset }) {
+import { DECREASE, INCREASE, RESET,MODAL_OPEN } from "./actions"
+function Counter({ name, count, increase, decrease, reset,open }) {
   return (
     <div className="container">
       <p>{name}</p>
@@ -14,6 +14,8 @@ function Counter({ name, count, increase, decrease, reset }) {
           onClick={decrease}>Dec</button>
         <button type="button" className="btn"
           onClick={reset}>Reset</button>
+           <button type="button" className="btn"
+          onClick={open}>Open Modal</button>
       </div>
 
     </div>
@@ -28,6 +30,7 @@ function mapDispatchToProps(dispatch, ownProps) {
     increase: () => dispatch({ type: INCREASE, payload: 1 }),
     decrease: () => dispatch({ type: DECREASE, payload: 1 }),
     reset: () => dispatch({ type: RESET }),
+    open: () => dispatch({ type: MODAL_OPEN })
   }
 }
 
