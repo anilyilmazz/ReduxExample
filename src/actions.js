@@ -13,4 +13,16 @@ export const SET_LOADING = "SET_LOADING";
 export const GET_PRODUCTS = "GET_PRODUCTS";
 
 // action creators
+export const decrease = (value) =>{
+    return {type:DECREASE,payload : value};
+}
+export const increase = (value) =>{
+    return {type:INCREASE,payload : value}
+}
+export const reset = () =>{
+    return {type:RESET}
+}
+export const modal_open = () =>{
+    return {type:MODAL_OPEN}
+}
 
