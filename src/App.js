@@ -13,6 +13,7 @@ import modalReducer from "./modalReducer"
 import thunk from "redux-thunk"
 //Componets
 import Modal from "./Modal"
+import Product from "./Product"
 
 const middleware = [thunk]
 
@@ -27,6 +28,7 @@ const App = () => {
     <Provider store={store}>
       <Counter />
       <Modal/>
+      <Product/>
     </Provider>)
 };
 

@@ -11,6 +11,8 @@ export const MODAL_CLOSE = "MODAL_CLOSE";
 // product actions
 export const SET_LOADING = "SET_LOADING";
 export const GET_PRODUCTS = "GET_PRODUCTS";
+export const CLEAR_PRODUCTS = "CLEAR_PRODUCTS";
+
 
 // action creators
 export const decrease = (value) =>{
@@ -28,11 +30,14 @@ export const modal_open = () =>{
 export const set_loading = () =>{
     return {type:SET_LOADING}
 }
-export const get_products = () =>{
+export const getProducts = () =>{
     return async function(dispatch){
         dispatch(set_loading());
         const response = await fetch("https://johnsmilgatutorials.com/projects/react-tech-store-v2/products");
         const data = await response.json();
         dispatch({type:GET_PRODUCTS,payload:data})
     }
+}
+export const clearProducts = () =>{
+    return {type:CLEAR_PRODUCTS}
 }
