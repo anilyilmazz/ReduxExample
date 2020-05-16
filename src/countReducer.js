@@ -2,7 +2,7 @@ import { DECREASE, INCREASE, RESET } from "./actions"
 
 export  const defaultState = {
     count: 0,
-    name: "bob"
+    name: "Counter"
   }
 
 export default function countReducer(state = defaultState, action) {
